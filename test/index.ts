@@ -1,7 +1,11 @@
 import { test } from '@nichoth/tapzero'
-import { example } from '../src/index.js'
+import Route from '../src/index.js'
 
-test('example', async t => {
-    t.ok('ok', 'should be an example')
-    example()
+test('route event', async t => {
+    const onRoute = Route()
+
+    onRoute((newPath, ev) => {
+        t.equal(typeof newPath, 'string', 'should callback with the path')
+        t.ok(ev.scrollX, 'should have scroll state')
+    })
 })

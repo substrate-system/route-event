@@ -1,24 +1,59 @@
-# template ts browser
-![tests](https://github.com/nichoth/template-ts-browser/actions/workflows/nodejs.yml/badge.svg)
+# route event
 [![types](https://img.shields.io/npm/types/@nichoth/catch-links?style=flat-square)](README.md)
 [![module](https://img.shields.io/badge/module-ESM%2FCJS-blue?style=flat-square)](README.md)
 [![license](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE)
 
-A template for typescript *dependency* modules that run in a browser environment. Uses `tape-run` for tests in a browser. See [template-ts](https://github.com/nichoth/template-ts) for the same thing but targeting Node.
+Simple route event for the browser. Call a function with a path whenever someone clicks a link that is local to the server.
 
-## use
-1. Use the template button in github. Or clone this then `rm -rf .git && git init`. Then `npm i && npm init`.
+## install
 
-2. Edit the source code in `src/index.ts`.
+```
+npm i route-event
+```
 
-## featuring
+### CJS
+```js
+var Route = require('route-event')
+```
 
-* compile the source to both ESM and CJS format, and put compiled files in `dist`.
-* ignore `dist` and `*.js` in git, but don't ignore them in npm. That way we don't commit any compiled code to git, but it is available to consumers.
-* use npm's `prepublishOnly` hook to compile the code before publishing to npm.
-* use `exports` field in `package.json` to make sure the right format is used by consumers.
-* `preversion` npm hook -- lint via `standardx`.
-* `postversion` npm hook -- `git push && git push --tags && npm publish`
-* eslint via [standardx](https://www.npmjs.com/package/standardx) -- `npm run lint`
-* tests run in a browser environment via `tape-run` -- see `npm test`. Includes `tap` testing tools -- [tapzero](https://github.com/nichoth/tapzero) and [tap-arc](https://www.npmjs.com/package/tap-arc)
-* CI via github actions
+### ESM
+```js
+import Route from 'route-event'
+```
+
+## example
+Listen for click events on `document.body`. If the event is triggered by using
+the browser's back/forward button, then `{ popstate }` will be true.
+
+```js
+var route = require('route-event')()
+
+// listen for click events on docuement.body. If the href is local to the
+// server, call `onRoute`
+var stopListening = route(function onRoute (path, data) {
+  console.log(path)
+  // '/example/path'
+  console.log(data)
+  // { scrollX: 0, scrollY: 0, popstate: false }
+})
+
+// change the location and call the onRoute cb
+route.setRoute('/some/path')
+```
+
+Pass in an element to listen to, and handle events with a router:
+```js
+var route = require('route-event')({
+    el: document.getElementById('app')
+})
+var router = require('@nichoth/routes')()
+
+router.addRoute('/', function () {
+  console.log('root')
+})
+
+route(function onChange (path) {
+  var m = router.match(path)
+  m.action()
+})
+```
