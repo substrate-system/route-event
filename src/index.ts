@@ -5,12 +5,10 @@ export interface Listener {
     (href:string, data:{ scrollX:number, scrollY:number, popstate:boolean }):void;
 }
 
-export interface AddListener {
+export function Route (opts:{ el?:HTMLElement } = {}):{
     (cb:Listener):void;
     setRoute:ReturnType<typeof singlePage>
-}
-
-export function Route (opts:{ el?:HTMLElement } = {}):AddListener {
+} {
     const listeners:(
         (href, data:{ scrollX, scrollY, popstate }) => void
     )[] = []

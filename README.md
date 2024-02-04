@@ -37,10 +37,13 @@ interface Listener {
 ```
 
 ### Route
-Create an instance of the event listener. Optionally take an element to listen to, and return a function that takes a callback that will receive route events.
+Create an instance of the event listener. Optionally take an element to listen to. Return a function that takes a callback that will receive route events. The returned function also has a property `setRoute` that will prgrammatically change the URL and call any route listeners.
 
 ```ts
-function Route (opts:{ el?:HTMLElement } = {}):(cb:Listener)=>void
+function Route (opts:{ el?:HTMLElement } = {}):{
+    (cb:Listener):void;
+    setRoute:ReturnType<typeof singlePage>
+}
 ```
 
 ## example
@@ -60,7 +63,7 @@ var stopListening = routeEvent(function onRoute (path, data) {
   // { scrollX: 0, scrollY: 0, popstate: false }
 
   // handle scroll state like a web browser
-  // restore scroll position on back/forward
+  // (restore scroll position on back/forward)
   if (data.popstate) {
       return window.scrollTo(opts.scrollX, opts.scrollY)
   }
@@ -69,7 +72,7 @@ var stopListening = routeEvent(function onRoute (path, data) {
   window.scrollTo(0, 0)
 })
 
-// change the location and call the onRoute cb
+// programmatically change the location and call the onRoute cb
 route.setRoute('/some/path')
 
 // ...sometime in the future...
