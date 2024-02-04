@@ -19,7 +19,7 @@ export default function Route (opts:{ el?:HTMLElement } = {}) {
 
     CatchLinks(el, setRoute)
 
-    function listen (cb) {
+    function listen (cb:(href, data:{ scrollX, scrollY, popstate }) => void) {
         const length = listeners.length
         listeners.push(cb)
 
