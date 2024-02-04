@@ -10,7 +10,7 @@ export interface AddListener {
     setRoute:ReturnType<typeof singlePage>
 }
 
-export function Route (opts:{ el?:HTMLElement } = {}):(cb:Listener)=>void {
+export function Route (opts:{ el?:HTMLElement } = {}):AddListener {
     const listeners:(
         (href, data:{ scrollX, scrollY, popstate }) => void
     )[] = []
