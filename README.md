@@ -15,7 +15,7 @@ npm i route-event
 
 ### CJS
 ```js
-var Route = require('route-event')
+var Route = require('route-event').default
 ```
 
 ### ESM
@@ -32,7 +32,11 @@ click or back / forward button (`true` means it was back/forward button).
 
 ```ts
 interface Listener {
-    (href:string, data:{ scrollX:number, scrollY:number, popstate:boolean }):void;
+  (href:string, data:{
+    scrollX:number,
+    scrollY:number,
+    popstate:boolean
+  }):void;
 }
 ```
 
