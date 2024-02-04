@@ -1,4 +1,4 @@
-import { singlePage } from '@nichoth/single-page'
+import { RouteEventData, singlePage } from '@nichoth/single-page'
 import CatchLinks from '@nichoth/catch-links'
 
 export interface Listener {
@@ -19,7 +19,7 @@ export default function Route (opts:{ el?:HTMLElement } = {}) {
 
     CatchLinks(el, setRoute)
 
-    function listen (cb:(href, data:{ scrollX, scrollY, popstate }) => void) {
+    function listen (cb:(href, data:RouteEventData) => void) {
         const length = listeners.length
         listeners.push(cb)
 
