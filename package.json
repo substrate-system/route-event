@@ -50,6 +50,14 @@
       ]
     }
   },
+  "keywords": [
+    "browser",
+    "client-side",
+    "client",
+    "route",
+    "router",
+    "url"
+  ],
   "author": "nichoth <nichoth@gmail.com> (https://nichoth.com)",
   "license": "MIT"
 }
