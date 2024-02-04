@@ -39,11 +39,27 @@ interface Listener {
 ### Route
 Create an instance of the event listener. Optionally take an element to listen to. Return a function that takes a callback that will receive route events. The returned function also has a property `setRoute` that will prgrammatically change the URL and call any route listeners.
 
+```js
+import Route from 'route-event'
+```
+
 ```ts
 function Route (opts:{ el?:HTMLElement } = {}):{
     (cb:Listener):void;
     setRoute:ReturnType<typeof singlePage>
 }
+```
+
+### setRoute
+A property on the returned function so you can programmatically set the URL.
+
+```ts
+function setRoute (href:string):void
+```
+
+```js
+const routeEvent = Route()
+routeEvent.setRoute('/example')
 ```
 
 ## example
