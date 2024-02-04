@@ -35,6 +35,13 @@ var stopListening = route(function onRoute (path, data) {
   // '/example/path'
   console.log(data)
   // { scrollX: 0, scrollY: 0, popstate: false }
+
+  // handle scroll state like a web browser
+  // restore scroll position on back/forward
+  if (opts.popstate) {
+      return window.scrollTo(opts.scrollX, opts.scrollY)
+  }
+  window.scrollTo(0, 0)
 })
 
 // change the location and call the onRoute cb
