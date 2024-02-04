@@ -18,7 +18,7 @@
     "prepublishOnly": "npm run build"
   },
   "dependencies": {
-    "@nichoth/catch-links": "^0.2.0",
+    "@nichoth/catch-links": "^0.2.2",
     "@nichoth/single-page": "^1.7.1"
   },
   "devDependencies": {
