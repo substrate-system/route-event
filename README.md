@@ -3,7 +3,9 @@
 [![module](https://img.shields.io/badge/module-ESM%2FCJS-blue?style=flat-square)](README.md)
 [![license](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE)
 
-Simple route event for the browser. Call a function with a path whenever someone clicks a link that is local to the server.
+Simple route event for the browser. This will handle URL changes client-side, so that navigating will not cause a page reload.
+
+Call a function with a path whenever someone clicks a link that is local to the server. Also, use the [history API](https://developer.mozilla.org/en-US/docs/Web/API/History_API) to handle back/forward button clicks.
 
 ## install
 
