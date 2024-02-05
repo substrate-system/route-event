@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "@nichoth/catch-links": "^0.2.2",
-    "@nichoth/single-page": "^1.7.1"
+    "@nichoth/single-page": "^1.7.2"
   },
   "devDependencies": {
     "@nichoth/tapzero": "^0.8.4",
