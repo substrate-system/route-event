@@ -2,6 +2,7 @@
   "name": "route-event",
   "version": "4.2.13",
   "type": "module",
+  "description": "Simple client side route event",
   "files": [
     "./dist/*"
   ],
@@ -58,6 +59,10 @@
     "router",
     "url"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nichoth/route-event.git"
+  },
   "author": "nichoth <nichoth@gmail.com> (https://nichoth.com)",
   "license": "MIT"
 }
