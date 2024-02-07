@@ -85,7 +85,7 @@ var stopListening = routeEvent(function onRoute (path, data) {
   // handle scroll state like a web browser
   // (restore scroll position on back/forward)
   if (data.popstate) {
-      return window.scrollTo(opts.scrollX, opts.scrollY)
+      return window.scrollTo(data.scrollX, data.scrollY)
   }
 
   // if this was a link click (not back button), then scroll to top
