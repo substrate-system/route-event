@@ -93,7 +93,7 @@ var stopListening = routeEvent(function onRoute (path, data) {
 })
 
 // programmatically change the location and call the onRoute cb
-route.setRoute('/some/path')
+routeEvent.setRoute('/some/path')
 
 // ...sometime in the future...
 // unsubscribe from route events
