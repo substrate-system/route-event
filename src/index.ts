@@ -6,7 +6,7 @@ export interface Listener {
 }
 
 export function Route (opts:{ el?:HTMLElement } = {}):{
-    (cb:Listener):void;
+    (cb:Listener):()=>void;
     setRoute:ReturnType<typeof singlePage>
 } {
     const listeners:(
