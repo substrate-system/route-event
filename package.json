@@ -1,6 +1,6 @@
 {
   "name": "route-event",
-  "version": "4.2.19",
+  "version": "4.2.20",
   "type": "module",
   "description": "Simple client side route event",
   "files": [
