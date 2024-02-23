@@ -8,7 +8,8 @@
   ],
   "main": "dist/index.js",
   "scripts": {
-    "lint": "standardx -v \"./**/*.ts\"",
+    "//lint": "standardx -v \"./**/*.ts\"",
+    "lint": "eslint \"./**/*.{ts,js}\"",
     "build-tests": "esbuild test/index.ts --format=esm --target=ES2022 --bundle --keep-names > test/test-bundle.js",
     "build-cjs": "esbuild src/*.ts --format=cjs --tsconfig=tsconfig.build.json --keep-names --outdir=./dist --out-extension:.js=.cjs",
     "build": "mkdir -p ./dist && rm -rf ./dist/* && npm run build-cjs && tsc --project tsconfig.build.json",
@@ -26,17 +27,15 @@
   "devDependencies": {
     "@nichoth/dom": "^0.0.18",
     "@nichoth/tapzero": "^0.8.4",
-    "@preact/preset-vite": "^2.8.1",
-    "@typescript-eslint/parser": "^6.20.0",
+    "@typescript-eslint/parser": "^7.0.2",
+    "@typescript-eslint/eslint-plugin": "^7.0.2",
     "auto-changelog": "^2.4.0",
     "esbuild": "^0.20.0",
-    "postcss-nesting": "^12.0.2",
-    "preact": "^10.19.3",
-    "standardx": "^7.0.0",
+    "eslint": "^8.56.0",
+    "eslint-config-standard": "^17.1.0",
     "tap-arc": "^1.2.2",
     "tape-run": "^11.0.0",
-    "typescript": "^5.3.3",
-    "vite": "^5.0.12"
+    "typescript": "^5.3.3"
   },
   "exports": {
     ".": {

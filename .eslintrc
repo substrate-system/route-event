@@ -2,12 +2,16 @@
   "parser": "@typescript-eslint/parser",
   "ignorePatterns": ["lib.es5.d.ts"],
   "parserOptions": {
-    "requireConfigFile": false,
-    "babelOptions": {
-    }
+    "requireConfigFile": false
   },
+  "extends": [
+    "standard",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "plugins": [
+    "@typescript-eslint"
+  ],
   "rules": {
-    "prefer-const": "error",
     "operator-linebreak": ["off"],
     "multiline-ternary": "off",
     "no-multiple-empty-lines": [
