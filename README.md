@@ -28,7 +28,7 @@ import Route from 'route-event'
 
 ### Listener
 Event listeners are functions that take an `href` and an object with previous
-scroll position, and `popstate`, a boolean indicating if this was a link
+scroll position and `popstate` -- a boolean indicating if this was a link
 click or back / forward button (`true` means it was back/forward button).
 
 ```ts
