@@ -23,7 +23,7 @@
     "@nichoth/single-page": "^1.7.2"
   },
   "devDependencies": {
-    "@nichoth/dom": "^0.0.18",
+    "@nichoth/dom": "^0.0.19",
     "@nichoth/tapzero": "^0.8.4",
     "@typescript-eslint/parser": "^7.0.2",
     "@typescript-eslint/eslint-plugin": "^7.0.2",
