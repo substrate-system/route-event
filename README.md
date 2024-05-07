@@ -24,49 +24,6 @@ var Route = require('route-event').default
 import Route from 'route-event'
 ```
 
-## API
-
-### Listener
-Event listeners are functions that take an `href` and an object with previous
-scroll position and `popstate` -- a boolean indicating if this was a link
-click or back / forward button (`true` means it was back/forward button).
-
-```ts
-interface Listener {
-  (href:string, data:{
-    scrollX:number,
-    scrollY:number,
-    popstate:boolean
-  }):void;
-}
-```
-
-### Route
-Create an instance of the event listener. Optionally take an element to listen to. Return a function that takes a callback that will receive route events. The returned function also has a property `setRoute` that will prgrammatically change the URL and call any route listeners.
-
-```js
-import Route from 'route-event'
-```
-
-```ts
-function Route (opts:{ el?:HTMLElement } = {}):{
-    (cb:Listener):void;
-    setRoute:ReturnType<typeof singlePage>
-}
-```
-
-### setRoute
-A property on the returned function so you can programmatically set the URL.
-
-```ts
-function setRoute (href:string):void
-```
-
-```js
-const routeEvent = Route()
-routeEvent.setRoute('/example')
-```
-
 ## example
 Listen for click events on `document.body`. If the event is triggered by using
 the browser's back/forward button, then `{ popstate }` will be true.
@@ -79,9 +36,9 @@ const routeEvent = Route()  // by default listen on document.body
 // server, call `onRoute`
 var stopListening = routeEvent(function onRoute (path, data) {
   console.log(path)
-  // '/example/path'
+  // => '/example/path'
   console.log(data)
-  // { scrollX: 0, scrollY: 0, popstate: false }
+  // => { scrollX: 0, scrollY: 0, popstate: false }
 
   // handle scroll state like a web browser
   // (restore scroll position on back/forward)
@@ -125,4 +82,47 @@ routeEvent(function onChange (path, ev) {
   }
   window.scrollTo(0, 0)
 })
+```
+
+## API
+
+### Listener
+Event listeners are functions that take an `href` and an object with previous
+scroll position and `popstate` -- a boolean indicating if this was a link
+click or back / forward button (`true` means it was back/forward button).
+
+```ts
+interface Listener {
+  (href:string, data:{
+    scrollX:number,
+    scrollY:number,
+    popstate:boolean
+  }):void;
+}
+```
+
+### Route
+Create an instance of the event listener. Optionally take an element to listen to. Return a function that takes a callback that will receive route events. The returned function also has a property `setRoute` that will prgrammatically change the URL and call any route listeners.
+
+```js
+import Route from 'route-event'
+```
+
+```ts
+function Route (opts:{ el?:HTMLElement } = {}):{
+    (cb:Listener):void;
+    setRoute:ReturnType<typeof singlePage>
+}
+```
+
+### setRoute
+A property on the returned function so you can programmatically set the URL.
+
+```ts
+function setRoute (href:string):void
+```
+
+```js
+const routeEvent = Route()
+routeEvent.setRoute('/example')
 ```
