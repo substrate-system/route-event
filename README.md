@@ -1,5 +1,5 @@
 # route event
-[![tests](https://github.com/nichoth/route-event/actions/workflows/nodejs.yml/badge.svg)](https://github.com/nichoth/route-event/actions/workflows/nodejs.yml)
+[![tests](https://github.com/bicycle-codes/route-event/actions/workflows/nodejs.yml/badge.svg)](https://github.com/bicycle-codes/route-event/actions/workflows/nodejs.yml)
 [![types](https://img.shields.io/npm/types/route-event?style=flat-square)](README.md)
 [![module](https://img.shields.io/badge/module-ESM%2FCJS-blue?style=flat-square)](README.md)
 [![license](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE)
@@ -61,7 +61,7 @@ stopListening()
 Pass in an element to listen to, and handle events with a router:
 ```js
 import Route from 'route-event'
-import Router from '@nichoth/routes'
+import Router from '@bicycle-codes/routes'
 
 const router = Router()
 const routeEvent = Route({
