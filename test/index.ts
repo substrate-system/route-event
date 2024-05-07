@@ -1,5 +1,5 @@
-import { test } from '@nichoth/tapzero'
-import { dom } from '@nichoth/dom'
+import { test } from '@bicycle-codes/tapzero'
+import { dom } from '@bicycle-codes/dom'
 import Route from '../src/index.js'
 
 let unlisten:()=>void
