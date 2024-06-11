@@ -12,6 +12,7 @@ export function Route (opts:{ el?:HTMLElement } = {}) {
     const el = opts.el || document.body
 
     const setRoute = singlePage(function (href, eventData) {
+        console.log('in here')
         listeners.forEach(function (cb) {
             cb(href, eventData)
         })
