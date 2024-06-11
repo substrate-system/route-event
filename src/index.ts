@@ -29,6 +29,21 @@ export function Route (opts:{ el?:HTMLElement } = {}) {
     }
 
     listen.setRoute = setRoute
+
+    // patch this so it calls our listeners
+    listen.setRoute.push = function (href:string) {
+        setRoute.push(href)
+        const scroll = setRoute.page[href]
+        listeners.forEach(cb => cb(
+            href,
+            {
+                popstate: false,
+                scrollX: (scroll && scroll[0]) || 0,
+                scrollY: (scroll && scroll[1]) || 0,
+            }
+        ))
+    }
+
     return listen
 }
 

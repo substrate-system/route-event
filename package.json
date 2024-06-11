@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "@bicycle-codes/catch-links": "^0.2.6",
-    "@bicycle-codes/single-page": "^1.7.4"
+    "@bicycle-codes/single-page": "^1.7.10"
   },
   "devDependencies": {
     "@bicycle-codes/dom": "^0.0.23",
