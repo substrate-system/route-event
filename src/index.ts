@@ -1,4 +1,4 @@
-import { singlePage } from '@bicycle-codes/single-page'
+import { PushFunction, singlePage } from '@bicycle-codes/single-page'
 import CatchLinks from '@bicycle-codes/catch-links'
 
 export type { PushFunction } from '@bicycle-codes/single-page'
@@ -20,7 +20,7 @@ export function Route (opts:{ el?:HTMLElement } = {}) {
 
     CatchLinks(el, setRoute)
 
-    function listen (cb:Listener) {
+    const listen = function listen (cb:Listener) {
         const length = listeners.length
         listeners.push(cb)
 
@@ -29,7 +29,28 @@ export function Route (opts:{ el?:HTMLElement } = {}) {
         }
     }
 
-    listen.setRoute = setRoute
+    const _setRoute:PushFunction = function (href:string) {
+        setRoute(href)
+    }
+
+    _setRoute.push = function (href:string, opts = { popstate: false }) {
+        const scroll = setRoute.page.scroll
+        setRoute.push(href)
+
+        listeners.forEach(cb => cb(href, {
+            popstate: opts.popstate,
+            scrollX: (scroll && scroll[0]) || 0,
+            scrollY: (scroll && scroll[1]) || 0
+        }))
+    }
+
+    _setRoute.show = function (href) {
+        setRoute.show(href)
+    }
+
+    _setRoute.page = setRoute.page
+
+    listen.setRoute = _setRoute
 
     return listen
 }
