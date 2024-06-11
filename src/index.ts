@@ -7,9 +7,7 @@ export interface Listener {
     (href:string, data:{ scrollX:number, scrollY:number, popstate:boolean }):void;
 }
 
-export function Route (opts:{ el?:HTMLElement } = {}):{
-    (cb:Listener):()=>void;
-} {
+export function Route (opts:{ el?:HTMLElement } = {}) {
     const listeners:Listener[] = []
     const el = opts.el || document.body
 
