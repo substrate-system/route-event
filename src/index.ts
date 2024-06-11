@@ -1,6 +1,8 @@
 import { singlePage } from '@bicycle-codes/single-page'
 import CatchLinks from '@bicycle-codes/catch-links'
 
+export type { PushFunction } from '@bicycle-codes/single-page'
+
 export interface Listener {
     (href:string, data:{ scrollX:number, scrollY:number, popstate:boolean }):void;
 }
