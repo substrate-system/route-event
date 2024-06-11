@@ -20,3 +20,8 @@ document.getElementById('setRoute')?.addEventListener('click', ev => {
     ev.preventDefault()
     routeEvent.setRoute('/bar')
 })
+
+document.getElementById('setRoute-push')?.addEventListener('click', ev => {
+    ev.preventDefault()
+    routeEvent.setRoute.push('/baz')
+})
