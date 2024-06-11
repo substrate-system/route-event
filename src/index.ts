@@ -7,11 +7,8 @@ export interface Listener {
 
 export function Route (opts:{ el?:HTMLElement } = {}):{
     (cb:Listener):()=>void;
-    setRoute:ReturnType<typeof singlePage>
 } {
-    const listeners:(
-        (href, data:{ scrollX, scrollY, popstate }) => void
-    )[] = []
+    const listeners:Listener[] = []
     const el = opts.el || document.body
 
     const setRoute = singlePage(function (href, eventData) {
