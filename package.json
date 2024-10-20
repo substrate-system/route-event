@@ -20,7 +20,7 @@
     "prepublishOnly": "npm run build"
   },
   "dependencies": {
-    "@bicycle-codes/catch-links": "^0.2.6",
+    "@bicycle-codes/catch-links": "^0.2.8",
     "@bicycle-codes/single-page": "^2.0.0"
   },
   "devDependencies": {
