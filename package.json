@@ -12,7 +12,7 @@
     "build-tests": "esbuild test/index.ts --format=esm --target=ES2022 --bundle --keep-names > test/test-bundle.js",
     "build-cjs": "esbuild src/*.ts --format=cjs --tsconfig=tsconfig.build.json --keep-names --outdir=./dist --out-extension:.js=.cjs",
     "build": "mkdir -p ./dist && rm -rf ./dist/* && npm run build-cjs && tsc --project tsconfig.build.json",
-    "test": "cat test/index.html | tape-run --input=html --static=test | tap-spec",
+    "test": "npm run build-tests && cat test/index.html | tape-run --input=html --static=test | tap-spec",
     "start": "vite",
     "preversion": "npm run lint",
     "version": "auto-changelog -p --template keepachangelog --breaking-pattern 'BREAKING CHANGE:' && git add CHANGELOG.md",
