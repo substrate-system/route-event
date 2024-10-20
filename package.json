@@ -12,7 +12,7 @@
     "build-tests": "esbuild test/index.ts --format=esm --target=ES2022 --bundle --keep-names > test/test-bundle.js",
     "build-cjs": "esbuild src/*.ts --format=cjs --tsconfig=tsconfig.build.json --keep-names --outdir=./dist --out-extension:.js=.cjs",
     "build": "mkdir -p ./dist && rm -rf ./dist/* && npm run build-cjs && tsc --project tsconfig.build.json",
-    "test": "cat test/index.html | tape-run --input=html --static=test | tap-arc",
+    "test": "cat test/index.html | tape-run --input=html --static=test | tap-spec",
     "start": "vite",
     "preversion": "npm run lint",
     "version": "auto-changelog -p --template keepachangelog --breaking-pattern 'BREAKING CHANGE:' && git add CHANGELOG.md",
@@ -24,18 +24,18 @@
     "@bicycle-codes/single-page": "^2.0.0"
   },
   "devDependencies": {
-    "@bicycle-codes/dom": "^0.1.0",
-    "@bicycle-codes/tapzero": "^0.10.0",
-    "@typescript-eslint/eslint-plugin": "^8.0.0",
-    "@typescript-eslint/parser": "^8.0.0",
+    "@bicycle-codes/dom": "^0.1.2",
+    "@bicycle-codes/tapzero": "^0.10.3",
+    "@typescript-eslint/eslint-plugin": "^8.10.0",
+    "@typescript-eslint/parser": "^8.10.0",
     "auto-changelog": "^2.4.0",
     "esbuild": "^0.24.0",
     "eslint": "^8.56.0",
     "eslint-config-standard": "^17.1.0",
-    "tap-arc": "^1.2.2",
+    "tap-spec": "^5.0.0",
     "tape-run": "^11.0.0",
-    "typescript": "^5.3.3",
-    "vite": "^5.2.13"
+    "typescript": "^5.6.3",
+    "vite": "^5.4.9"
   },
   "exports": {
     ".": {
@@ -65,6 +65,6 @@
     "type": "git",
     "url": "git+https://github.com/bicycle-codes/route-event.git"
   },
-  "author": "nichoth <nichoth@gmail.com> (https://nichoth.com)",
+  "author": "nichoth <nichoth@nichoth.com> (https://nichoth.com)",
   "license": "MIT"
 }
