@@ -21,7 +21,7 @@
   },
   "dependencies": {
     "@substrate-system/catch-links": "^0.2.8",
-    "@bicycle-codes/single-page": "^2.0.0"
+    "@substrate-system/single-page": "^2.0.1"
   },
   "devDependencies": {
     "@bicycle-codes/dom": "^0.1.2",
@@ -63,7 +63,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bicycle-codes/route-event.git"
+    "url": "git+https://github.com/substrate-system/route-event.git"
   },
   "author": "nichoth <nichoth@nichoth.com> (https://nichoth.com)",
   "license": "MIT"
