@@ -54,6 +54,9 @@ var stopListening = onRoute(function onRoute (path, data) {
 // programmatically change the location and call the onRoute cb
 routeEvent.setRoute('/some/path')
 
+// change the route, but don't call the callbacks
+routeEvent.setRoute.push('/abc')
+
 // ...sometime in the future...
 // unsubscribe from route events
 stopListening()
@@ -124,6 +127,18 @@ function setRoute (href:string):void
 ```
 
 ```js
+import Route from '@substrate-system/route-event'
+
 const routeEvent = Route()
 routeEvent.setRoute('/example')
+```
+
+### `setRoute.push`
+Change the route, but don't call the callbacks.
+
+```ts
+import Route from '@substrate-system/route-event'
+
+const routeEvent = Route()
+routeEvent.setRoute.push = function (href:string):void {
 ```
