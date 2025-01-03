@@ -30,12 +30,12 @@ Listen for click events on `document.body`. If the event is triggered by using
 the browser's back/forward button, then `{ popstate }` will be true.
 
 ```js
-import { Route } from 'route-event'
-const routeEvent = Route()  // by default listen on document.body
+import Route from 'route-event'
+const onRoute = Route()  // by default listen on document.body
 
 // listen for click events on docuement.body. If the href is local to the
 // server, call `onRoute`
-var stopListening = routeEvent(function onRoute (path, data) {
+var stopListening = onRoute(function onRoute (path, data) {
   console.log(path)
   // => '/example/path'
   console.log(data)
@@ -62,7 +62,7 @@ stopListening()
 Pass in an element to listen to, and handle events with a router:
 ```js
 import Route from 'route-event'
-import Router from '@bicycle-codes/routes'
+import Router from '@substrate-system/routes'
 
 const router = Router()
 const routeEvent = Route({
