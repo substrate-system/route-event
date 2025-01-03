@@ -1,4 +1,4 @@
-import { PushFunction, singlePage } from '@substrate-system/single-page'
+import { type PushFunction, singlePage } from '@substrate-system/single-page'
 import CatchLinks from '@substrate-system/catch-links'
 export type { PushFunction } from '@substrate-system/single-page'
 
@@ -31,15 +31,15 @@ export function Route (opts:{ el?:HTMLElement } = {}) {
         setRoute(href)
     }
 
-    _setRoute.push = function (href:string, opts = { popstate: false }) {
-        const scroll = setRoute.page.scroll
+    _setRoute.push = function (href:string):void {
+        // const scroll = setRoute.page.scroll
         setRoute.push(href)
 
-        listeners.forEach(cb => cb(href, {
-            popstate: opts.popstate,
-            scrollX: (scroll && scroll[0]) || 0,
-            scrollY: (scroll && scroll[1]) || 0
-        }))
+        // listeners.forEach(cb => cb(href, {
+        //     popstate: opts.popstate,
+        //     scrollX: (scroll && scroll[0]) || 0,
+        //     scrollY: (scroll && scroll[1]) || 0
+        // }))
     }
 
     _setRoute.show = function (href) {

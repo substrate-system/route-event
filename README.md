@@ -11,8 +11,8 @@ Call a function with a path whenever someone clicks a link that is local to the 
 
 ## install
 
-```
-npm i route-event
+```sh
+npm i -S route-event
 ```
 
 ### CJS
