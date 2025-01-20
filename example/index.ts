@@ -1,6 +1,8 @@
 import { Route } from '../src/index.js'
 
-const routeEvent = Route()
+const routeEvent = Route({
+    handleAnchor: false
+})
 
 let count = 0
 

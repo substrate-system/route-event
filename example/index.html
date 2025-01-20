@@ -3,13 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
     <title>Example</title>
 </head>
 
 <body>
     <div id="root">
-      <a href="/fooo">local link</a>
-      <a href="https://example.com/">example.com</a>
+      <ul>
+        <li><a href="/fooo">local link</a></li>
+        <li><a href="https://example.com/">example.com</a></li>
+        <li><a href="#aaaaa">aaaaaaaaaaaa</a></li>
+      </ul>
 
       <hr />
 
@@ -17,6 +21,8 @@
       <button id="setRoute">set the route to /bar</button>
       <button id="setRoute-push">set the route, and call .push</button>
     </div>
+
+    <div id="aaaaa">anchor content</div>
     <script type="module" src="./index.ts"></script>
   </body>
 </html>

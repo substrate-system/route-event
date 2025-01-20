@@ -6,17 +6,20 @@ export interface Listener {
     (href:string, data:{ scrollX:number, scrollY:number, popstate:boolean }):void;
 }
 
-export function Route (opts:{ el?:HTMLElement } = {}) {
+export function Route (opts:{
+    el?:HTMLElement;
+    handleAnchor?:boolean|((href:string)=>boolean)
+} = {}) {
     const listeners:Listener[] = []
     const el = opts.el || document.body
 
-    const setRoute = singlePage(function (href, eventData) {
+    const setRoute = singlePage((href, eventData) => {
         listeners.forEach(function (cb) {
             cb(href, eventData)
         })
     })
 
-    CatchLinks(el, setRoute)
+    CatchLinks(el, setRoute, { handleAnchor: opts.handleAnchor })
 
     const listen = function listen (cb:Listener) {
         const length = listeners.length
@@ -32,14 +35,7 @@ export function Route (opts:{ el?:HTMLElement } = {}) {
     }
 
     _setRoute.push = function (href:string):void {
-        // const scroll = setRoute.page.scroll
         setRoute.push(href)
-
-        // listeners.forEach(cb => cb(href, {
-        //     popstate: opts.popstate,
-        //     scrollX: (scroll && scroll[0]) || 0,
-        //     scrollY: (scroll && scroll[1]) || 0
-        // }))
     }
 
     _setRoute.show = function (href) {
