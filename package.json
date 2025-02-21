@@ -30,7 +30,7 @@
     "@typescript-eslint/parser": "^8.10.0",
     "auto-changelog": "^2.4.0",
     "esbuild": "^0.25.0",
-    "eslint": "^8.56.0",
+    "eslint": "^9.21.0",
     "eslint-config-standard": "^17.1.0",
     "tap-spec": "^5.0.0",
     "tape-run": "^11.0.0",
