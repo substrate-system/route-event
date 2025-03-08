@@ -11,7 +11,9 @@ export function Route (opts:{
     handleAnchor?:boolean|((href:string)=>boolean)
 } = {}) {
     const listeners:Listener[] = []
-    const el = opts.el || document.body
+    // ? for node
+    const el = opts.el || document?.body
+    if (!el) throw new Error('Not document')
 
     const setRoute = singlePage((href, eventData) => {
         listeners.forEach(function (cb) {
