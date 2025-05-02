@@ -1,3 +1,4 @@
+import '../src/index.css'
 import { Route } from '../src/index.js'
 
 const routeEvent = Route({
