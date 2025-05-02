@@ -15,7 +15,24 @@ to handle back/forward button clicks.
 
 
 <details><summary><h2>Contents</h2></summary>
+
 <!-- toc -->
+
+- [install](#install)
+  * [CJS](#cjs)
+  * [ESM](#esm)
+- [example](#example)
+- [focus](#focus)
+  * [See also](#see-also)
+- [scroll position](#scroll-position)
+- [API](#api)
+  * [Listener](#listener)
+  * [Route](#route)
+  * [setRoute](#setroute)
+  * [`setRoute.push`](#setroutepush)
+
+<!-- tocstop -->
+
 </details>
 
 
