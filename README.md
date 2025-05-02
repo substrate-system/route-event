@@ -6,9 +6,18 @@
 [![license](https://img.shields.io/badge/license-Polyform_Small_Business-249fbc?style=flat-square)](LICENSE)
 
 
-Simple route event for the browser. This will handle URL changes client-side, so that navigating will not cause a page reload.
+Simple route event for the browser. This will handle URL changes client-side, so
+that navigating will not cause a page reload.
 
-Call a function with a path whenever someone clicks a link that is local to the server. Also, use the [history API](https://developer.mozilla.org/en-US/docs/Web/API/History_API) to handle back/forward button clicks.
+Call a function with a path whenever someone clicks a link that is local to the
+server. Also, use the [history API](https://developer.mozilla.org/en-US/docs/Web/API/History_API)
+to handle back/forward button clicks.
+
+
+<details><summary><h2>Contents</h2></summary>
+<!-- toc -->
+</details>
+
 
 ## install
 
@@ -64,6 +73,7 @@ stopListening()
 ```
 
 Pass in an element to listen to, and handle events with a router:
+
 ```js
 import Route from 'route-event'
 import Router from '@substrate-system/routes'
@@ -89,6 +99,52 @@ routeEvent(function onChange (path, ev) {
 })
 ```
 
+## focus
+
+See [a post about focus in SPAs](https://gomakethings.com/shifting-focus-on-route-change-with-react-router/)
+
+> in user testing, [Marcy Sutton found](https://www.gatsbyjs.com/blog/2019-07-11-user-testing-accessible-client-routing/)
+> that the generally most well received approach was to shift focus to the `h1`
+> heading on each route change.
+
+
+### See also
+
+* [What we learned from user testing of accessible client-side routing techniques with Fable Tech Labs](https://www.gatsbyjs.com/blog/2019-07-11-user-testing-accessible-client-routing/)
+
+> Without page refreshes, screen reader users may not be informed that the page
+> has changed.
+
+> a user’s keyboard focus point may be kept in the same place as where they
+> clicked, which isn’t intuitive.
+
+#### solutions
+
+1. Dynamically set focus to an HTML wrapper element on page change, to both
+   move focus to the new content and make an announcement in assistive technology.
+
+   This pattern often uses tabindex="-1" on a DIV or other block-level element
+   to allow focus to be placed on an otherwise non-interactive element.
+2. Dynamically set focus to a h1-h6 heading element instead of a wrapper to move
+   focus to new content and make a shorter screen reader announcement.
+   This also typically requires tabindex="-1"
+3. Dynamically set focus to an interactive element like a button. The name of
+   the button matters a lot here.
+4. Leave focus where it is and make an ARIA Live Region announcement instead.
+5. Reset focus to the top of the application (i.e. a parent wrapper element) to
+   mimic a traditional browser refresh and announce new content in
+   assistive technology.
+6. Turn on focus outlines for keyboard and screen reader users while suppressing
+   them for the mouse using CSS :focus-visible and polyfill or the What
+   Input library.
+7. Any combination of the above
+
+## scroll position
+
+The browser will restore your previous scroll position when you use the back
+button, but on a new page it will start scrolled to 0, 0.
+
+
 ## API
 
 ### Listener
@@ -107,7 +163,10 @@ interface Listener {
 ```
 
 ### Route
-Create an instance of the event listener. Optionally take an element to listen to. Return a function that takes a callback that will receive route events. The returned function also has a property `setRoute` that will prgrammatically change the URL and call any route listeners.
+Create an instance of the event listener. Optionally take an element to listen
+to. Return a function that takes a callback that will receive route events.
+The returned function also has a property `setRoute` that will prgrammatically
+change the URL and call any route listeners.
 
 ```js
 import Route from 'route-event'

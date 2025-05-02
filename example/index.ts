@@ -6,10 +6,13 @@ const routeEvent = Route({
 
 let count = 0
 
-const unlisten = routeEvent((href) => {
+const unlisten = routeEvent(function onRoute (href) {
     count++
+    document.querySelector('h1')?.focus()
+
     console.log('route event: ', href)
     console.log('count: ', count)
+    console.log('active element? ', document.activeElement)
 })
 
 document.getElementById('unlisten')?.addEventListener('click', ev => {

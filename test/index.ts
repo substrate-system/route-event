@@ -1,5 +1,5 @@
-import { test } from '@bicycle-codes/tapzero'
-import { dom } from '@bicycle-codes/dom'
+import { test } from '@substrate-system/tapzero'
+import { dom } from '@substrate-system/dom'
 import Route from '../src/index.js'
 
 let unlisten:()=>void
