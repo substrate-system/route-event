@@ -14,8 +14,9 @@
     "build": "mkdir -p ./dist && rm -rf ./dist/* && npm run build-cjs && tsc --project tsconfig.build.json",
     "test": "npm run build-tests && cat test/index.html | tape-run --input=html --static=test | tap-spec",
     "start": "vite",
+    "toc": "markdown-toc --maxdepth 3 -i README.md",
     "preversion": "npm run lint",
-    "version": "auto-changelog -p --template keepachangelog --breaking-pattern 'BREAKING CHANGE:' && git add CHANGELOG.md",
+    "version": "npm run toc && auto-changelog -p --template keepachangelog --breaking-pattern 'BREAKING CHANGE:' && git add CHANGELOG.md",
     "postversion": "git push --follow-tags && npm publish",
     "prepublishOnly": "npm run build"
   },
@@ -32,9 +33,10 @@
     "esbuild": "^0.25.0",
     "eslint": "^8.56.0",
     "eslint-config-standard": "^17.1.0",
+    "markdown-toc": "^1.2.0",
     "tap-spec": "^5.0.0",
     "tape-run": "^11.0.0",
-    "typescript": "^5.8.3",
+    "typescript": "^5.7.3",
     "vite": "^6.3.4"
   },
   "exports": {
