@@ -8,7 +8,10 @@ let count = 0
 
 const unlisten = routeEvent(function onRoute (href) {
     count++
-    document.querySelector('h1')?.focus()
+    const h1 = document.querySelector('h1')
+    const tabIndex = h1?.getAttribute('tabindex')
+    h1?.setAttribute('tabindex', tabIndex ?? '-1')
+    h1?.focus()
 
     console.log('route event: ', href)
     console.log('count: ', count)

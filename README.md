@@ -68,6 +68,11 @@ var stopListening = onRoute(function onRoute (path, data) {
   console.log(data)
   // => { scrollX: 0, scrollY: 0, popstate: false }
 
+  // set focus
+  // see https://gomakethings.com/shifting-focus-on-route-change-with-react-router/
+  // and https://www.gatsbyjs.com/blog/2019-07-11-user-testing-accessible-client-routing/
+  document.querySelector('h1')?.focus()
+
   // handle scroll state like a web browser
   // (restore scroll position on back/forward)
   if (data.popstate) {
@@ -123,6 +128,25 @@ See [a post about focus in SPAs](https://gomakethings.com/shifting-focus-on-rout
 > in user testing, [Marcy Sutton found](https://www.gatsbyjs.com/blog/2019-07-11-user-testing-accessible-client-routing/)
 > that the generally most well received approach was to shift focus to the `h1`
 > heading on each route change.
+
+**Note** in the example, we set focus to the `h1` element on any route change.
+
+```js
+onRouteChange(() => {
+  const h1 = document.querySelector('h1')
+  const tabIndex = h1?.getAttribute('tabindex')
+  h1?.setAttribute('tabindex', tabIndex ?? '-1')
+  h1?.focus()
+})
+```
+
+This package includes some CSS to help with focus also. Import the CSS
+as normal.
+
+```js
+import 'route-event/css'
+```
+
 
 
 ### See also
