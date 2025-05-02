@@ -11,7 +11,6 @@ export function Route (opts:{
     handleAnchor?:boolean|((href:string)=>boolean)
 } = {}) {
     const listeners:Listener[] = []
-    // ? for node
     const el = opts.el || document?.body
     if (!el) throw new Error('Not document')
 
