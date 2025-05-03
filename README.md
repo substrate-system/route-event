@@ -123,7 +123,7 @@ routeEvent(function onChange (path, ev) {
 
 ## focus
 
-See [a post about focus in SPAs](https://gomakethings.com/shifting-focus-on-route-change-with-react-router/)
+See [a post about focus in SPAs](https://gomakethings.com/shifting-focus-on-route-change-with-react-router/).
 
 > in user testing, [Marcy Sutton found](https://www.gatsbyjs.com/blog/2019-07-11-user-testing-accessible-client-routing/)
 > that the generally most well received approach was to shift focus to the `h1`

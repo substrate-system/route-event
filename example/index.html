@@ -12,9 +12,15 @@
 
     <div id="root">
       <ul>
-        <li><a href="/fooo">local link</a></li>
-        <li><a href="https://example.com/">example.com</a></li>
-        <li><a href="#aaaaa">aaaaaaaaaaaa</a></li>
+        <li>
+          <a href="/fooo">local link</a>
+          (Should handle path change client-side. See the console log.)
+        </li>
+        <li>
+          <a href="https://example.com/">example.com</a>
+          (Should do a page refresh because this is a different domain.)
+        </li>
+        <li><a href="#aaaaa">aaaaaaaaaaaa</a> (should scroll to the content)</li>
       </ul>
 
       <hr />
