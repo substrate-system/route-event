@@ -44,6 +44,8 @@ to handle back/forward button clicks.
 npm i -S route-event
 ```
 
+## API
+
 ### CJS
 ```js
 var Route = require('route-event').default
@@ -53,6 +55,12 @@ var Route = require('route-event').default
 ```js
 import Route from 'route-event'
 ```
+
+### pre-bundled
+
+This package exposes minifed JS too, exposed as `route-event/min`.
+
+
 
 ## example
 Listen for click events on `document.body`. If the event is triggered by using
