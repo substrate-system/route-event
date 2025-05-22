@@ -58,9 +58,19 @@ import Route from 'route-event'
 
 ### pre-bundled
 
-This package exposes minifed JS too, exposed as `route-event/min`.
+This package exposes minified JS files too. Copy them to a location that is
+accessible to your web server, then link to them in HTML.
 
+#### copy
+```sh
+cp ./node_modules/route-event/dist/index.min.js ./public/route-event.min.js
+```
 
+#### HTML
+
+```html
+<script type="module" src="./route-event.min.js"></script>
+```
 
 ## example
 Listen for click events on `document.body`. If the event is triggered by using
