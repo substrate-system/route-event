@@ -21,13 +21,15 @@ to handle back/forward button clicks.
 <!-- toc -->
 
 - [install](#install)
+- [API](#api)
   * [CJS](#cjs)
   * [ESM](#esm)
+  * [pre-bundled](#pre-bundled)
 - [example](#example)
 - [focus](#focus)
   * [See also](#see-also)
 - [scroll position](#scroll-position)
-- [API](#api)
+- [API](#api-1)
   * [Listener](#listener)
   * [Route](#route)
   * [setRoute](#setroute)
