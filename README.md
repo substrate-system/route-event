@@ -4,7 +4,7 @@
 [![module](https://img.shields.io/badge/module-ESM%2FCJS-blue?style=flat-square)](README.md)
 [![semantic versioning](https://img.shields.io/badge/semver-2.0.0-blue?logo=semver&style=flat-square)](https://semver.org/)
 [![install size](https://flat.badgen.net/packagephobia/install/route-event?cache-control=no-cache)](https://packagephobia.com/result?p=route-event)
-[![gzip size](https://img.shields.io/bundlephobia/minzip/route-event?style=flat-square)](https://bundlephobia.com/package/route-event)
+[![GZip size](https://img.badgesize.io/https%3A%2F%2Fesm.sh%2Froute-event?compression=gzip&style=flat-square)](https://esm.sh/route-event)
 [![license](https://img.shields.io/badge/license-Polyform_Small_Business-249fbc?style=flat-square)](LICENSE)
 
 
