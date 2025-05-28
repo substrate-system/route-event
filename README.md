@@ -21,7 +21,7 @@ to handle back/forward button clicks.
 <!-- toc -->
 
 - [install](#install)
-- [API](#api)
+- [Modules](#modules)
   * [CJS](#cjs)
   * [ESM](#esm)
   * [pre-bundled](#pre-bundled)
@@ -29,7 +29,7 @@ to handle back/forward button clicks.
 - [focus](#focus)
   * [See also](#see-also)
 - [scroll position](#scroll-position)
-- [API](#api-1)
+- [API](#api)
   * [Listener](#listener)
   * [Route](#route)
   * [setRoute](#setroute)
@@ -46,7 +46,7 @@ to handle back/forward button clicks.
 npm i -S route-event
 ```
 
-## API
+## Modules
 
 ### CJS
 ```js
