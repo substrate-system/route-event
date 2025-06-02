@@ -26,6 +26,8 @@ to handle back/forward button clicks.
   * [ESM](#esm)
   * [pre-bundled](#pre-bundled)
 - [example](#example)
+- [Pass in an element to listen to, and handle events with a router:](#pass-in-an-element-to-listen-to-and-handle-events-with-a-router)
+- [Use a function to check clicks](#use-a-function-to-check-clicks)
 - [focus](#focus)
   * [See also](#see-also)
 - [scroll position](#scroll-position)
