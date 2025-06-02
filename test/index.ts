@@ -1,5 +1,5 @@
 import { test } from '@substrate-system/tapzero'
-import { dom } from '@substrate-system/dom'
+import { click, dom } from '@substrate-system/dom'
 import Route from '../src/index.js'
 
 let unlisten:()=>void
@@ -25,4 +25,18 @@ test('stop listening', async t => {
     unlisten()
     dom.click(local!)
     t.ok(1, 'should not callback after calling "unlisten"')
+})
+
+test('Use a function to check links', t => {
+    t.plan(1)
+    const onRoute = Route({
+        handleLink: (href) => href === '/abc'
+    })
+
+    onRoute(newPath => {
+        t.ok(newPath !== 'def')
+    })
+
+    click('#def')
+    click('#abc')
 })

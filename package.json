@@ -50,7 +50,7 @@
     "prepublishOnly": "npm run build"
   },
   "dependencies": {
-    "@substrate-system/catch-links": "^0.2.10",
+    "@substrate-system/catch-links": "^0.2.13",
     "@substrate-system/single-page": "^2.0.1"
   },
   "devDependencies": {

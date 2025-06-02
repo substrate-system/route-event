@@ -8,7 +8,8 @@ export interface Listener {
 
 export function Route (opts:{
     el?:HTMLElement;
-    handleAnchor?:boolean|((href:string)=>boolean)
+    handleAnchor?:boolean|((href:string)=>boolean),
+    handleLink?:(href:string)=>boolean
 } = {}) {
     const listeners:Listener[] = []
     const el = opts.el || document?.body
@@ -20,7 +21,10 @@ export function Route (opts:{
         })
     })
 
-    CatchLinks(el, setRoute, { handleAnchor: opts.handleAnchor })
+    CatchLinks(el, setRoute, {
+        handleAnchor: opts.handleAnchor,
+        handleLink: opts.handleLink
+    })
 
     const listen = function listen (cb:Listener) {
         const length = listeners.length
