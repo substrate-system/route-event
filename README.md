@@ -116,7 +116,7 @@ routeEvent.setRoute.push('/abc')
 stopListening()
 ```
 
-Pass in an element to listen to, and handle events with a router:
+## Pass in an element to listen to, and handle events with a router:
 
 ```js
 import Route from 'route-event'
@@ -141,6 +141,26 @@ routeEvent(function onChange (path, ev) {
   }
   window.scrollTo(0, 0)
 })
+```
+
+## Use a function to check clicks
+
+Pass in a function to check if we should handle the link locally, or like
+a normal link.
+
+```js
+import Route from '@substrate-system/route-event'
+
+const onRoute = Route({
+    handleLink: (href) => href === '/abc'
+})
+
+onRoute(newPath => {
+    console.log(newPath !== 'def')  // true
+})
+
+// does not call our client-side handler function
+document.querySelector('#def')?.click()
 ```
 
 ## focus
