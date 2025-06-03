@@ -151,7 +151,7 @@ Pass in a function to check if we should handle the link locally, or like
 a normal link.
 
 ```js
-import Route from '@substrate-system/route-event'
+import Route from 'route-event'
 
 const onRoute = Route({
     handleLink: (href) => href === '/abc'
