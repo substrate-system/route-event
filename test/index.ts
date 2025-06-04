@@ -2,28 +2,29 @@ import { test } from '@substrate-system/tapzero'
 import { click, dom } from '@substrate-system/dom'
 import Route from '../src/index.js'
 
-let unlisten:()=>void
-let local
-test('route event', async t => {
+let unlisten
+test('route event, with root call', t => {
+    t.plan(1)
     const onRoute = Route()
-    t.plan(3)
 
-    unlisten = onRoute((newPath, ev) => {
-        t.equal(newPath, '/local', 'should callback with the path')
-        t.equal(typeof ev.scrollX, 'number', 'should have scroll state X')
-        t.equal(typeof ev.scrollY, 'number', 'should have scroll state Y')
+    return new Promise<void>((resolve) => {
+        unlisten = onRoute((newPath) => {
+            t.equal(newPath, '/',
+                "should first call with '/' (root path)," +
+                    " because we didn't pass init: false")
+            unlisten()
+            resolve()
+        })
     })
-
-    local = document.getElementById('local-link')
-    const remote = document.getElementById('remote-link')
-    dom.click(local!)
-    dom.click(remote!)
 })
 
 test('stop listening', async t => {
     t.plan(1)
+    const local = document.getElementById('local-link')
     unlisten()
     dom.click(local!)
+    dom.click('#root')
+
     t.ok(1, 'should not callback after calling "unlisten"')
 })
 

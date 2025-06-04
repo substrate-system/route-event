@@ -41,7 +41,8 @@
     "build-docs": "typedoc ./src/index.ts",
     "build": "mkdir -p ./dist && rm -rf ./dist/* && npm run build-cjs && npm run build-esm && npm run build-esm:min && npm run build-cjs:min && npm run copy",
     "copy": "cp ./src/index.css ./dist",
-    "test": "npm run build-tests && cat test/index.html | tape-run --input=html --static=test | tap-spec",
+    "//": "need to run tests as separate files for the `init` option",
+    "test": "npm run build-tests && cat test/index.html | tape-run --input=html --static=test | tap-spec && esbuild test/init.ts --bundle | tape-run | tap-spec",
     "start": "vite",
     "toc": "markdown-toc --maxdepth 3 -i README.md",
     "preversion": "npm run lint",
@@ -50,8 +51,8 @@
     "prepublishOnly": "npm run build"
   },
   "dependencies": {
-    "@substrate-system/catch-links": "^0.2.13",
-    "@substrate-system/single-page": "^2.0.1"
+    "@substrate-system/catch-links": "0.2.14",
+    "@substrate-system/single-page": "^2.0.2"
   },
   "devDependencies": {
     "@substrate-system/dom": "^0.1.7",
@@ -66,7 +67,8 @@
     "tap-spec": "^5.0.0",
     "tape-run": "^11.0.0",
     "typescript": "^5.7.3",
-    "vite": "^6.3.4"
+    "vite": "^6.3.4",
+    "vitest": "^3.2.1"
   },
   "keywords": [
     "browser",

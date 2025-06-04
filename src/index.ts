@@ -6,34 +6,46 @@ export interface Listener {
     (href:string, data:{ scrollX:number, scrollY:number, popstate:boolean }):void;
 }
 
+/**
+ * Routes
+ * @param {} opts
+ * @returns A function that takes a callback for route change events, and has
+ * a property to set the route.
+ */
 export function Route (opts:{
     el?:HTMLElement;
     handleAnchor?:boolean|((href:string)=>boolean),
-    handleLink?:(href:string)=>boolean
-} = {}) {
-    const listeners:Listener[] = []
+    handleLink?:(href:string)=>boolean,
+    init?:boolean
+} = {}):{
+    (cb:Listener):()=>void;
+    setRoute:PushFunction;
+} {
+    let listeners:Listener[] = []
+    const init = opts.init
     const el = opts.el || document?.body
     if (!el) throw new Error('Not document')
+
+    const listen = function listen (cb:Listener) {
+        listeners.push(cb)
+
+        return function unlisten () {
+            listeners = listeners.filter(listener => {
+                return listener !== cb
+            })
+        }
+    }
 
     const setRoute = singlePage((href, eventData) => {
         listeners.forEach(function (cb) {
             cb(href, eventData)
         })
-    })
+    }, { init })
 
     CatchLinks(el, setRoute, {
         handleAnchor: opts.handleAnchor,
         handleLink: opts.handleLink
     })
-
-    const listen = function listen (cb:Listener) {
-        const length = listeners.length
-        listeners.push(cb)
-
-        return function unlisten () {
-            listeners.splice(length, 1)
-        }
-    }
 
     const _setRoute:PushFunction = function (href:string) {
         setRoute(href)
