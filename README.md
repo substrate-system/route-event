@@ -76,7 +76,8 @@ cp ./node_modules/route-event/dist/index.min.js ./public/route-event.min.js
 <script type="module" src="./route-event.min.js"></script>
 ```
 
-## example
+## Example
+
 Listen for click events on `document.body`. If the event is triggered by using
 the browser's back/forward button, then `{ popstate }` will be true.
 
@@ -117,6 +118,22 @@ routeEvent.setRoute.push('/abc')
 // unsubscribe from route events
 stopListening()
 ```
+
+## Don't emit a route event when the page first loads
+
+By default this will dispatch a route event when the page first loads. Pass
+in `{ init: false }` to disabled this.
+
+```js
+import Route from 'route-event'
+
+const onRoute = Route({ init: false })
+```
+
+Any subsequent clicks will trigger an event, but nothing will happen
+on first page load.
+
+
 
 ## Pass in an element to listen to, and handle events with a router:
 
