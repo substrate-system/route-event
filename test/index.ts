@@ -18,7 +18,7 @@ test('route event, with root call', t => {
     })
 })
 
-test('stop listening', async t => {
+test('stop listening', t => {
     t.plan(1)
     const local = document.getElementById('local-link')
     unlisten()

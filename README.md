@@ -4,7 +4,7 @@
 [![module](https://img.shields.io/badge/module-ESM%2FCJS-blue?style=flat-square)](README.md)
 [![semantic versioning](https://img.shields.io/badge/semver-2.0.0-blue?logo=semver&style=flat-square)](https://semver.org/)
 [![install size](https://flat.badgen.net/packagephobia/install/route-event?cache-control=no-cache)](https://packagephobia.com/result?p=route-event)
-[![GZip size](https://img.shields.io/bundlephobia/minzip/route-event?style=flat-square&label=GZip%20size&color=brightgreen)](https://bundlephobia.com/package/route-event)
+[![GZip size](https://img.shields.io/bundlephobia/minzip/route-event?style=flat-square&label=GZip%20size)](https://bundlephobia.com/package/route-event)
 [![license](https://img.shields.io/badge/license-Polyform_Small_Business-249fbc?style=flat-square)](LICENSE)
 
 
@@ -26,7 +26,7 @@ to handle back/forward button clicks.
   * [ESM](#esm)
   * [pre-bundled](#pre-bundled)
 - [example](#example)
-- [Pass in an element to listen to, and handle events with a router:](#pass-in-an-element-to-listen-to-and-handle-events-with-a-router)
+- [Pass in an element to listen to, and handle events with a router](#pass-in-an-element-to-listen-to-and-handle-events-with-a-router)
 - [Use a function to check clicks](#use-a-function-to-check-clicks)
 - [focus](#focus)
   * [See also](#see-also)
@@ -135,7 +135,7 @@ on first page load.
 
 
 
-## Pass in an element to listen to, and handle events with a router:
+## Pass in an element to listen to, and handle events with a router
 
 ```js
 import Route from 'route-event'
