@@ -1,6 +1,5 @@
-import { type PushFunction, singlePage } from '@substrate-system/single-page'
-import CatchLinks from '@substrate-system/catch-links'
-export type { PushFunction } from '@substrate-system/single-page'
+import { CatchLinks } from './catch-links.js'
+import { type PushFunction, singlePage } from './single-page.js'
 
 export interface Listener {
     (href:string, data:{ scrollX:number, scrollY:number, popstate:boolean }):void;

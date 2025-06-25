@@ -16,6 +16,18 @@
       "import": "./dist/index.min.js",
       "require": "./dist/index.min.cjs"
     },
+    "./min/*": {
+      "import": "./dist/*.min.js",
+      "require": "./dist/*.min.cjs"
+    },
+    "./catch-links": {
+      "import": "./dist/catch-links.js",
+      "require": "./dist/catch-links.cjs"
+    },
+    "./single-page": {
+      "import": "./dist/single-page.js",
+      "require": "./dist/single-page.cjs"
+    },
     "./css": {
       "import": "./dist/index.css"
     },
@@ -50,10 +62,7 @@
     "postversion": "git push --follow-tags && npm publish",
     "prepublishOnly": "npm run build"
   },
-  "dependencies": {
-    "@substrate-system/catch-links": "0.2.14",
-    "@substrate-system/single-page": "^2.0.2"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@substrate-system/dom": "^0.1.7",
     "@substrate-system/tapzero": "^0.10.15",
