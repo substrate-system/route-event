@@ -9,9 +9,8 @@ test('route event, with root call', t => {
 
     return new Promise<void>((resolve) => {
         unlisten = onRoute((newPath) => {
-            t.equal(newPath, '/',
-                "should first call with '/' (root path)," +
-                    " because we didn't pass init: false")
+            t.equal(newPath, '/', "should first call with '/' (root path)," +
+                " because we didn't pass init: false")
             unlisten()
             resolve()
         })
